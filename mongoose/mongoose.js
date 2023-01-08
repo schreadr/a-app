@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-const Location = require("./location.model");
-
-//mongoose.set("useFindAndModify", false);
+const Hashs = require("./hashs.model");
 
 module.exports.connectDB = async () => {
   try {
@@ -13,4 +11,4 @@ module.exports.connectDB = async () => {
   }
 }
 
-module.exports.Location = Location;
+module.exports.Hashs = Hashs;

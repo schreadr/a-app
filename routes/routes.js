@@ -1,8 +1,7 @@
 const router = require("express").Router();
 
 router.use("/", require("./index"));
-router.use("/postLocation", require("./postLocation"));
-router.use("/getLocation", require("./getLocation"));
-router.use("/Euse-Weg", require("./ourRoute"));
+router.use("/search", require("./getSearch"));
+router.use("/save", require("./postSave"));
 
 module.exports = router;
