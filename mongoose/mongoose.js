@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 const Location = require("./location.model");
 
-mongoose.set("useFindAndModify", false);
+//mongoose.set("useFindAndModify", false);
 
- //mongodb://127.0.0.1:27017/gruebler-am-road-trippn
-mongoose.connect(
-    process.env.MONGODB_URL,
-    { useNewUrlParser: true, useCreateIndex: true },
-    () => console.log("connected")
-);
+module.exports.connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URL);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
 
 module.exports.Location = Location;
